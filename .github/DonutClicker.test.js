@@ -28,5 +28,17 @@ describe("DonutClicker", () => {
         expect(underTest.numAutoclickers).toEqual(0);
     })
     
-    test("should ADD more button clicks ")
-});
+    test("should increase the cost of the autoclicker by 10%", () => {
+        const underTest = new DonutClicker(100, 1, 100);
+        underTest.addAutoclicker();
+        expect(underTest.clickerCost).toEqual(110);
+        
+    });
+
+    test("should increase the cost of the autoclicker by 10%", () => {
+        const underTest = new DonutClicker(100, 2, 110);
+        underTest.addAutoclicker();
+        expect(underTest.clickerCost).toEqual(121);
+        
+    });
+})
