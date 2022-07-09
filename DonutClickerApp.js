@@ -3,41 +3,47 @@ import DonutClicker from "./DonutClicker";
 const DonutClickerShop = new DonutClicker(0, 0 , 100, 0, 0, 0);
 const totalDonuts = document.querySelector('.totalDonuts');
 const donutBtn = document.querySelector('.donutBtn');
-const totalAutoClickers = document.querySelector('.autoClickerBtn');
+const autoClickerBtn = document.querySelector('.autoClickerBtn');
 const multiplierScan = document.querySelector('.multiplierBtn');
+const resetGameBtn = document.querySelector('.reset');
+const resetGame = document.querySelector('.newGame');
+const totalAutoClickers = document.querySelector('.totalAutoClickers')
 
-renderPage();
-function renderPage(){
-    applyDonut();
-    applyAutoClicker();
+updateTotals();
+
+resetGameBtn.addEventListener('click', ()=>{
+    DonutClickerShop.resetGame();
+    alert('Are you sure you want to reset your stats?')
+    if(confirm("Choose wisely")) {
+        txt = "You have reset your game";
+    } else{
+        txt = "You decided to continue your journey";
+    }
+})
+
+donutBtn.addEventListener('click', ()=>{
+    DonutClickerShop.addDonut();
+    totalDonuts.innerText = "Donuts: " + DonutClickerShop.numDonuts;
+    console.log("this is working");
     updateTotals();
-}
+});
 
-function applyDonut(){
-    
-    donutBtn.addEventListener('click', ()=>{
-        DonutClickerShop.addDonut();
-        totalDonuts.innerText = DonutClickerShop.numDonuts;
-        updateTotals();
-        
-        // displayDonutStats(addDonutPerClick, addAutoclicker, addDonutMultiplier)
+
+autoClickerBtn.addEventListener('click', ()=>{
+    DonutClickerShop.addAutoclicker();
+    setInterval(numAutoclickers, 1000);
+    updateTotals();
     });
-}
-function applyAutoClicker(){
-    autoClickerBtn.addEventListener('click', ()=>{
-        DonutClickerShop.addAutoclicker();
-        totalAutoClickers.innerText = DonutClickerShop.numAutoclickers;
-        setInterval(addAutoclicker, 1000);
-        updateTotals();
-    });
-}
-function applyMultiplier(){
-    multiplierScan.addEventListener('click', ()=>{
-        DonutClickerShop.addDonutMultiplier();
-        multiplierScan.innerText = DonutClickerShop.donutMultiplier;
+
+
+multiplierScan.addEventListener('click', ()=>{
+    DonutClickerShop.addDonutMultiplier();
+    updateTotals();
     })
-}
+
+
 function updateTotals(){
-    totalDonuts.innerText = "Donuts: " + DonutClickerShop.totalDonuts();
-    totalAutoClickers.innerText = "AutoClickers: " + DonutClickerShop.totalAutoClickers();
+    totalDonuts.innerText = "Donuts: " + DonutClickerShop.numDonuts;
+    totalAutoClickers.innerText = "AutoClickers: " + DonutClickerShop.numAutoclickers;
+    multiplierScan.innerText = "Multipliers applied: " + DonutClickerShop.donutMultiplier;
 }
