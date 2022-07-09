@@ -41,4 +41,25 @@ describe("DonutClicker", () => {
         expect(underTest.clickerCost).toEqual(121);
         
     });
+
+    test("should increase the amount of donuts for each autoclicker", () => {
+        const underTest = new DonutClicker(100, 2, 110);
+        underTest.addDonut();
+        expect(underTest.numDonuts).toEqual(102);
+    });
+
+    test("should be able to purchase first donut multiplier with 10 clicks from your click count", () => {
+        const underTest = new DonutClicker(100, 2, 100, 10, 0);
+        underTest.addDonutMultiplier();
+        expect(underTest.numDonuts).toEqual(90);
+        expect(underTest.donutMultiplier).toEqual(1);
+    });
+
+    test("should add multiplier", () =>{
+        const underTest = new DonutClicker();
+        underTest.addDonutMultiplier();
+        expect(underTest.numDonuts).toEqual();
+        expect(underTest.donutMultiplier).toEqual();
+    })
+
 })
