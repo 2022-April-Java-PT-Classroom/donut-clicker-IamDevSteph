@@ -13,7 +13,7 @@ describe("DonutClicker", () => {
 
     test("should be able to add an autoclicker with 100 donuts", () => {
         //Arrange
-        const underTest = new DonutClicker(100, 0);
+        const underTest = new DonutClicker(100, 0, 100);
         //Act
         underTest.addAutoclicker();
         //Assert

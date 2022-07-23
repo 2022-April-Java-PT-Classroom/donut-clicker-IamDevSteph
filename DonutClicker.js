@@ -10,17 +10,24 @@ class DonutClicker {
     }
 
     addDonut(){
-        this.numDonuts += this.numAutoclickers >0 ? 1 * this.numAutoclickers: 1;
+        // this.numDonuts += this.numAutoclickers >0 ? 1 * this.numAutoclickers: 1;
+        if (this.donutMultiplier > 0) {
+            this.numDonuts += 1 * this.donutMultiplier;
+        } else{
+            this.numDonuts++;
+        }
+        if (this.numAutoclickers > 0) {
+            this.numDonuts += 1 * this.numAutoclickers;
+        }
     }
+    
     addAutoclicker(){
-        if(this.numDonuts >=100){
+        if(this.numDonuts >= this.clickerCost){
         this.numDonuts -= this.clickerCost;
         this.numAutoclickers += 1;
-        }
-
-        if(this.numAutoclickers >= 1){
         this.clickerCost += this.clickerCost * 0.1;
         }
+
     }
     
     addDonutMultiplier(){
