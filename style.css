@@ -1,0 +1,13 @@
+html{
+    background-color: #44382a;
+    color: white;
+}
+.donutBtn{
+    background-image: url(https://media2.giphy.com/media/570ib2lp8v3Gw/giphy.gif?cid=ecf05e475ouk853yf7avpt8fq0wxlq55ekovtshfs1h5abd0&rid=giphy.gif&ct=g);
+    padding: 1em;
+    background-size: 500px;
+    border-radius: 50%;
+    height: 500px;
+    width: 500px;
+
+}

@@ -4,10 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
     <title>Donut Clicker</title>
   </head>
   <body>
     <div class="container"></div>
-    <script src="./index.js"></script>
+    <nav id="nav bar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Reference</a>
+      <a href="#">Contact</a>
+    </nav>
+    <h1>Donut Clicker</h1>
+    <h3><span class="totalDonuts"></span></h3>
+    <button class="donutBtn">click me!</button>
+    <br>
+    <br>
+    <h3><span class="totalAutoClickers"></span></h3>
+    <h3><span class="autoClickerCost"></span></h3>
+    <h3><span class="multiplierNextPurchase"></span></h3>
+    <button class="autoClickerBtn">Autoclicker</button>
+    <button class="multiplierBtn">Multiplier</button>
+    <button class="reset">New Game</button>
+
+    <script src="DonutClicker.js"></script>
+    <script src="DonutClickerApp.js"></script>
   </body>
+  <footer class="footer">
+    <small class="footer__copyright">&copy Stephanie Ingraham WCCI 2022 </small>
+  </footer>
 </html>
